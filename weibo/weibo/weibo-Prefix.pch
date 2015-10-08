@@ -1,0 +1,71 @@
+//
+//  Prefix header
+//
+//  The contents of this file are implicitly included at the beginning of every source file.
+//
+
+#import <Availability.h>
+
+#ifndef __IPHONE_3_0
+#warning "This project uses features only available in iOS SDK 3.0 and later."
+#endif
+
+#ifdef __OBJC__
+    #import <UIKit/UIKit.h>
+    #import <Foundation/Foundation.h>
+    #import <CoreData/CoreData.h>
+
+    #import "UIImage+Extension.h"
+    #import "UIView+Extension.h"
+    #import "UIBarButtonItem+Extension.h"
+
+#ifdef DEBUG // 调试状态, 打开LOG功能
+#define NBLog(...) NSLog(__VA_ARGS__)
+#else // 发布状态, 关闭LOG功能
+#define NBLog(...)
+#endif
+
+// 颜色
+#define NBColor(r, g, b) [UIColor colorWithRed:(r)/255.0 green:(g)/255.0 blue:(b)/255.0 alpha:1.0]
+
+// 随机色
+#define NBRandomColor NBColor(arc4random_uniform(256), arc4random_uniform(256), arc4random_uniform(256))
+
+// 是否为iOS7
+#define iOS7 ([[UIDevice currentDevice].systemVersion doubleValue] >= 7.0)
+
+// 是否为4inch
+#define FourInch ([UIScreen mainScreen].bounds.size.height == 568.0)
+
+// 导航栏主题title字体大小
+#define NBNavigationTitleFont  [UIFont boldSystemFontOfSize:20]
+
+// 应用信息
+#define NBAppKey @"3201042797"
+#define NBAppSecret @"31c37449db4dbb4ef278bbb070dd7ae5"
+#define NBRedirectURI @"http://www.cnblogs.com/chenjianjun/"
+
+// 屏幕尺寸
+#define NBScreenW [UIScreen mainScreen].bounds.size.width
+
+// cell的计算参数
+// cell的内边距
+#define NBStatusCellInset 10
+
+// 原创微博昵称字体
+#define NBStatusOrginalNameFont [UIFont systemFontOfSize:14]
+// 原创微博时间字体
+#define NBStatusOrginalTimeFont [UIFont systemFontOfSize:12]
+// 原创微博来源字体
+#define NBStatusOrginalSourceFont NBStatusOrginalTimeFont
+// 原创微博正文字体
+#define NBStatusOrginalTextFont [UIFont systemFontOfSize:15]
+
+// 转发微博昵称字体
+#define NBStatusRetweetedNameFont NBStatusOrginalNameFont
+// 转发微博正文字体
+#define NBStatusRetweetedTextFont NBStatusOrginalTextFont
+
+
+
+#endif
